@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #000000;
+  --color-secondary: #666666;
+  --color-accent: #000000;
+  --color-bg-slate: #ffffff;
+  --color-text-slate: #000000;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-white text-black antialiased overflow-x-hidden;
+  }
+}
+
+.architectural-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+}
+
+.line-hover {
+  position: relative;
+}
+
+.line-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.line-hover:hover::after {
+  width: 100%;
+}
